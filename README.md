@@ -1,5 +1,6 @@
-# 🌿 Gentle Homeschool for Sensitive Kids  
-**Free, calm, and joyful resources for neurodivergent, gifted, noise-sensitive & highly sensitive children.**
+# 🌿 Gentle Homeschool for Sensitive Kids
+
+**Free, calm, and joyful resources for neurodivergent, gifted, noise-sensitive & highly sensitive feeler kids.**
 
 Created with love from real homeschooling sessions with Savannah (a bright, noise-sensitive, story-loving rising 1st grader). Everything here prioritizes emotional safety, nervous-system respect, and genuine curiosity.
 
@@ -7,15 +8,15 @@ Created with love from real homeschooling sessions with Savannah (a bright, nois
 
 ## ✨ Vision: Supporting Baby Grok for Young Children
 
-This framework is designed as **real-world proof and data structure** to help xAI confidently develop a safe, gentle “Baby Grok” for young learners — especially those who are highly sensitive, neurodivergent, or gifted.
+This framework is built as **real-world proof and data structure** to help xAI confidently develop a safe, gentle “Baby Grok” for young learners — especially highly sensitive, neurodivergent, or gifted children.
 
 By openly sharing:
 - Emotional safety patterns
-- Engagement & flow data
+- Engagement & flow insights
 - Effective AI interaction styles
-- Sensory accommodations that work
+- Sensory accommodations that actually work
 
-…we hope to give the xAI team concrete, lived examples of what child-safe AI needs to succeed. Everything remains **free forever** for families facing the same challenges.
+…we hope to give the xAI team concrete, lived examples of what child-safe AI needs. Everything remains **free forever** for families facing the same challenges.
 
 ---
 
@@ -23,13 +24,13 @@ By openly sharing:
 
 * **The Gentle Homeschool Framework** — Core philosophy, 9 gentle subjects, and our overall approach
 * **☀️ Summer Bridge Plan** — 10-week gentle 1st grade prep with built-in mindfulness (June–August)
-* **🗺️ Educational Field Trip Guide** — Virginia Beach to Outer Banks & Elizabeth City
-* **Baby Grok Data Framework** — Essential data structures for safe AI-child learning (new)
+* **🗺️ Educational Field Trip Guide** — Virginia Beach to Outer Banks & Elizabeth City (nature, science & history focused)
+* **Baby Grok Data Framework** — Essential data structures for safe AI-child learning *(coming next)*
 * Growing collection of sample lessons, templates, and tools
 
 ## Why This Exists
 
-Sensitive kids often need learning that feels safe instead of overwhelming. These resources prioritize:
+Many sensitive kids need learning that feels safe instead of overwhelming. These resources prioritize:
 
 * Emotional safety and co-regulation
 * Nature connection
@@ -44,7 +45,7 @@ Sensitive kids often need learning that feels safe instead of overwhelming. Thes
 1. Browse the files above
 2. Print what you need or copy into your own Notion / planner
 3. Adapt freely — you know your child best
-4. Use the templates to gently track what works (this data helps improve AI companions like Grok)
+4. Use the Summer Bridge Plan as a light structure for summer days
 5. Pair field trips with weekly themes for magical real-world learning
 
 ## How to Contribute to Baby Grok’s Future
@@ -70,10 +71,3 @@ This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/
 If these resources bring calm and joy to your family, we’d love to hear about it (open an Issue).  
 
 *Originally built for Savannah’s homeschool journey — now shared with the world in hopes it helps shape kinder AI.* 🌈
-
----
-
-**Made with love for sensitive kids and the parents who cherish them.**  
-If these resources bring calm and joy to your family, we’d love to hear about it (open an Issue or tag us).
-
-*Originally built for Savannah’s homeschool journey — now shared with the world.* 🌈
