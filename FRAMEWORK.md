@@ -2,7 +2,7 @@
 
 ## ✨ Vision: Supporting Baby Grok for Young Children
 
-This framework serves as **real-world proof** for xAI to develop a safe, gentle “Baby Grok” for sensitive, neurodivergent, and gifted young learners. By sharing emotional safety patterns, engagement data, and effective AI interaction styles, we hope to help create AI that truly understands and protects young hearts.
+This framework serves as **real-world proof** for responsible AI teams (including xAI) to develop a safe, gentle “Baby Grok” for sensitive, neurodivergent, and gifted young learners. By sharing emotional safety patterns, engagement data, and effective AI interaction styles, we hope to help create AI that truly understands and protects young hearts.
 
 ---
 
@@ -29,7 +29,7 @@ We believe homeschooling sensitive, gifted, and neurodivergent children works be
 6. Music, Rhythm & Movement (adapted for noise sensitivity)  
 7. Physical Education & Outdoor Adventures (regulation + joy)  
 8. Social-Emotional Learning (SEL) & Mindfulness (foundational)  
-9. Life Skills & Practical Math (cooking, money, independence)
+9. Life Skills & Practical Learning (independence, real-world skills)
 
 ---
 
@@ -37,7 +37,7 @@ We believe homeschooling sensitive, gifted, and neurodivergent children works be
 
 To help shape safe AI companions, we’ve created a complete set of **privacy-first data structures**.
 
-→ **[BABY-GROK-DATA-FRAMEWORK.md](../BABY-GROK-DATA-FRAMEWORK.md)**
+→ **[BABY-GROK-DATA-FRAMEWORK.md](BABY-GROK-DATA-FRAMEWORK.md)**
 
 ### The 5 Essential Data Pillars
 1. Emotional Safety & Regulation  
@@ -52,13 +52,13 @@ To help shape safe AI companions, we’ve created a complete set of **privacy-fi
 
 All templates are designed to be **child-friendly**, printable, and easy to use in Notion or on paper.
 
-**📁 [TEMPLATES Folder](../TEMPLATES/)**
+**📁 [TEMPLATES Folder](TEMPLATES/)**
 
-- **[daily-checkin.md](../TEMPLATES/daily-checkin.md)** — Morning + evening reflection
-- **[ai-session-log.md](../TEMPLATES/ai-session-log.md)** — Track Grok / Baby Grok interactions (most valuable for xAI)
-- **[weekly-reflection.md](../TEMPLATES/weekly-reflection.md)** — Gentle weekly review
-- **[emotional-safety-log.md](../TEMPLATES/emotional-safety-log.md)** — Sensory and feelings tracking
-- **[progress-snapshot.md](../TEMPLATES/progress-snapshot.md)** — Strength-based growth notes
+- `daily-checkin.md` — Morning + evening reflection
+- `ai-session-log.md` — Track Grok / Baby Grok interactions (most valuable for xAI)
+- `weekly-reflection.md` — Gentle weekly review
+- `emotional-safety-log.md` — Sensory and feelings tracking
+- `progress-snapshot.md` — Strength-based growth notes
 
 ---
 
@@ -78,4 +78,4 @@ This creates consistent, loving, perfectly tailored support while gathering the 
 **This framework is a living document** — completely free forever.  
 We welcome contributions from other families to make it even better for sensitive kids everywhere.
 
-**Made with love for Savannah and every child who learns best when they feel safe.** 💕ping everything organized.
+*Part of the Gentle Homeschool for Sensitive Kids project.* 💕
