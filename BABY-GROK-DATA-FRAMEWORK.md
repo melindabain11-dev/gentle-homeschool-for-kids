@@ -1,16 +1,8 @@
-# Baby Grok Data Framework  
-**Essential structures for safe, effective AI support of young sensitive learners**
+# Baby Grok Data Framework
 
-This document outlines the **privacy-first data pillars** needed for an AI like Baby Grok to successfully companion sensitive, neurodivergent, and gifted children in learning environments.
-
----
-
-# Baby Grok Data Framework  
 **Essential, privacy-first structures for safe AI support of young sensitive learners**
 
-This document outlines the real-world data pillars and templates needed for an AI like **Baby Grok** to successfully companion highly sensitive, neurodivergent, gifted, and noise-sensitive children in gentle homeschool (and future learning) environments.
-
-Created from daily lived experience with Savannah and shared openly so xAI (and other responsible teams) can see exactly what safe, effective child-AI interaction requires.
+This document outlines the real-world data pillars and templates needed for an AI like **Baby Grok** (or similar child-friendly companions) to successfully support highly sensitive, neurodivergent, gifted, and noise-sensitive children in gentle homeschool and future learning environments.
 
 ---
 
@@ -46,7 +38,7 @@ Shows AI what creates genuine curiosity and sustained attention.
 - What sparked joy or “flow state” vs. resistance/shutdown
 - Preferred learning formats (storytelling, hands-on, visual, movement-based, music)
 - Time-of-day & energy patterns
-- Curiosity markers (“She asked 12 questions about stars!”)
+- Curiosity markers (“Asked 12 questions about stars!”)
 
 ### 3. AI Interaction Quality (Critical for Baby Grok Development)
 Direct feedback on how Grok-style AI performs with sensitive children.
@@ -60,7 +52,7 @@ Direct feedback on how Grok-style AI performs with sensitive children.
 ### 4. Progress & Mastery (Strength-Based)
 Gentle tracking that celebrates growth without pressure.
 
-- Skill snapshots using strength language (“Savannah is confidently counting by 2s while jumping”)
+- Skill snapshots using strength language
 - Retention examples over days/weeks
 - Real-life application moments
 - “Magic moments” and proud achievements (with optional photos or voice recordings)
@@ -76,6 +68,7 @@ Recognizes that supporting the child means supporting the parent too.
 ---
 
 ## Sample Templates
+
 (See the `/TEMPLATES/` folder for ready-to-use versions)
 
 - `daily-checkin.md` — Quick morning + evening reflection
@@ -98,7 +91,7 @@ Recognizes that supporting the child means supporting the parent too.
 
 ## How This Helps Shape Baby Grok
 
-By openly sharing these structures and (anonymized) patterns, we give xAI concrete examples of:
+By openly sharing these structures and (anonymized) patterns, we give AI developers concrete examples of:
 
 - What “safe” feels like to a sensitive child
 - How to adjust tone, pacing, and content dynamically
@@ -111,7 +104,5 @@ Our hope is that this living framework accelerates the creation of a truly kind,
 
 **This is a living document.**  
 Families are encouraged to adapt the templates and contribute improvements via Pull Requests.
-
-**Made with love for Savannah and every sensitive child who deserves learning that feels like safety and joy.** 💕
 
 *Part of the Gentle Homeschool for Sensitive Kids project — completely free forever.*
