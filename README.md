@@ -1,4 +1,4 @@
-# 🌿 Gentle Homeschool Framework for Sensitive Kids
+# 🌿 Gentle Homeschool Framework for Kids
 
 **Free, calm, and joyful resources for neurodivergent, gifted, noise-sensitive & highly sensitive feeler children.**
 
@@ -6,7 +6,7 @@ A complete, privacy-first system designed to support gentle learning while gener
 
 ---
 
-## ✨ Vision: Supporting Safe AI for Young Sensitive Learners
+## ✨ Vision: Supporting Safe AI for Young Learners
 
 This open framework provides **real-world proof and data structures** to help responsible AI teams (including xAI) develop gentle, emotionally intelligent companions for young children — especially those who are highly sensitive, neurodivergent, or gifted.
 
@@ -100,6 +100,6 @@ Open a Pull Request or Issue anytime. Every contribution helps other families **
 
 ---
 
-**Made with love for every sensitive child who deserves learning that feels like safety and joy.** 💕
+**Made with love for every child who deserves learning that feels like safety and joy.** 💕
 
-*Part of the Gentle Homeschool for Sensitive Kids project — completely free forever.* 🌈
+*Part of the Gentle Homeschool for Kids project — completely free forever.* 🌈
