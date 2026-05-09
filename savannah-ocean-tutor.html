@@ -7,36 +7,63 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --glow: rgba(59, 130, 246, 0.4);
+        }
         body { font-family: 'Inter', system-ui, sans-serif; }
         .heading-font { font-family: 'Playfair Display', Georgia, serif; }
         .chat-bubble { max-width: 85%; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .ocean-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); }
         .thinking { animation: pulse 1.5s infinite; }
+        .neon-button {
+            transition: all 0.2s ease;
+            box-shadow: 0 0 12px var(--glow);
+        }
+        .neon-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--glow);
+        }
+        .neon-accent { color: var(--accent); }
+        .neon-bg { background-color: var(--accent); }
+        .neon-border { border-color: var(--accent); }
     </style>
 </head>
 <body class="ocean-gradient min-h-screen">
 
 <div class="max-w-7xl mx-auto">
-  <div class="px-6 pt-6 pb-4 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-14 h-14 bg-blue-500 rounded-3xl flex items-center justify-center text-4xl shadow">🐋</div>
-      <div>
-        <h1 class="heading-font text-4xl text-blue-900">Savannah’s Ocean Wonders</h1>
-        <p class="text-blue-600 -mt-1">Your safe little learning space 💙</p>
+  <!-- Header with Color Switcher -->
+  <div class="px-6 pt-6 pb-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 bg-blue-500 rounded-3xl flex items-center justify-center text-4xl shadow">🐋</div>
+        <div>
+          <h1 class="heading-font text-4xl text-blue-900">Savannah’s Ocean Wonders</h1>
+          <p class="text-blue-600 -mt-1">Your safe little learning space 💙</p>
+        </div>
       </div>
-    </div>
-    <div class="hidden md:block text-xs bg-white/70 px-3 py-1 rounded-3xl text-blue-600">
-      Everything stays right here on your page
+      
+      <!-- Color Magic Switcher -->
+      <div class="hidden md:flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-3xl shadow-sm">
+        <span class="text-xs font-medium text-gray-500 mr-2">Color Magic</span>
+        
+        <button onclick="setTheme('ocean')" class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 border-2 border-white shadow neon-button" title="Ocean"></button>
+        <button onclick="setTheme('pink')" class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-fuchsia-500 border-2 border-white shadow neon-button" title="Neon Pink"></button>
+        <button onclick="setTheme('purple')" class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 border-2 border-white shadow neon-button" title="Neon Purple"></button>
+        <button onclick="setTheme('green')" class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-lime-400 border-2 border-white shadow neon-button" title="Neon Green"></button>
+        <button onclick="setTheme('blue')" class="w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 border-2 border-white shadow neon-button" title="Neon Blue"></button>
+      </div>
     </div>
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 px-6 pb-8">
 
     <!-- LEFT: Chat with Grok Tutor -->
-    <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px]">
+    <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px] neon-border border-2">
       <div class="p-5 border-b flex items-center gap-3 bg-white rounded-t-3xl">
-        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-teal-400 rounded-2xl flex items-center justify-center text-3xl">🐬</div>
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-3xl neon-bg text-white">🐬</div>
         <div>
           <div class="font-semibold text-2xl text-blue-900">Grok • Your Ocean Tutor</div>
           <div class="text-emerald-600 text-sm flex items-center gap-1">
@@ -46,7 +73,6 @@
       </div>
 
       <div id="chat" class="flex-1 p-6 overflow-y-auto space-y-4 bg-[radial-gradient(#bae6fd_0.6px,transparent_1px)] bg-[length:3px_3px]">
-        <!-- Messages go here -->
       </div>
 
       <div class="p-5 border-t bg-white rounded-b-3xl">
@@ -56,12 +82,12 @@
                  onkeypress="if(event.key === 'Enter') sendMessage()">
           
           <button onclick="startListening()" 
-                  class="bg-teal-500 hover:bg-teal-600 active:scale-95 transition text-white px-5 rounded-3xl flex items-center justify-center">
+                  class="neon-bg hover:opacity-90 active:scale-95 transition text-white px-5 rounded-3xl flex items-center justify-center">
             <i class="fa-solid fa-microphone fa-lg"></i>
           </button>
           
           <button onclick="sendMessage()" 
-                  class="bg-blue-500 hover:bg-blue-600 active:scale-95 transition text-white px-6 rounded-3xl flex items-center justify-center">
+                  class="neon-bg hover:opacity-90 active:scale-95 transition text-white px-6 rounded-3xl flex items-center justify-center">
             <i class="fa-solid fa-paper-plane"></i>
           </button>
         </div>
@@ -70,7 +96,7 @@
     </div>
 
     <!-- RIGHT: Picture Questions -->
-    <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px]">
+    <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px] neon-border border-2">
       <div class="p-5 border-b bg-white rounded-t-3xl">
         <h3 class="font-semibold text-2xl text-blue-900">Look & Tell Me 🌊</h3>
         <p class="text-sm text-blue-600">Tap a picture and we’ll talk about it!</p>
@@ -119,6 +145,38 @@
 </div>
 
 <script>
+// Theme colors
+const themes = {
+  ocean: { accent: '#3b82f6', glow: 'rgba(59, 130, 246, 0.4)' },
+  pink:  { accent: '#ec4899', glow: 'rgba(236, 72, 153, 0.4)' },
+  purple:{ accent: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)' },
+  green: { accent: '#22c55e', glow: 'rgba(34, 197, 94, 0.4)' },
+  blue:  { accent: '#3b82f6', glow: 'rgba(59, 130, 246, 0.4)' }
+};
+
+function setTheme(theme) {
+  const root = document.documentElement;
+  const colors = themes[theme];
+  
+  root.style.setProperty('--accent', colors.accent);
+  root.style.setProperty('--glow', colors.glow);
+  
+  // Update neon elements
+  document.querySelectorAll('.neon-bg').forEach(el => {
+    el.style.backgroundColor = colors.accent;
+  });
+  
+  // Gentle feedback
+  const chat = document.getElementById('chat');
+  if (chat) {
+    const msg = document.createElement('div');
+    msg.className = 'text-center text-xs text-gray-400 py-1';
+    msg.textContent = `✨ Changed to ${theme} magic!`;
+    chat.appendChild(msg);
+    setTimeout(() => msg.remove(), 1500);
+  }
+}
+
 // Welcome message
 function addWelcome() {
   const chat = document.getElementById('chat');
