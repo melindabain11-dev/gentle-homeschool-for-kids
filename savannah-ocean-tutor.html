@@ -7,113 +7,106 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap');
         body { font-family: 'Inter', system-ui, sans-serif; }
         .heading-font { font-family: 'Playfair Display', Georgia, serif; }
-        .chat-bubble { max-width: 85%; }
+        .chat-bubble { max-width: 85%; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .ocean-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); }
     </style>
 </head>
 <body class="ocean-gradient min-h-screen">
 
 <div class="max-w-7xl mx-auto">
-  <!-- Header -->
   <div class="px-6 pt-6 pb-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
       <div class="w-14 h-14 bg-blue-500 rounded-3xl flex items-center justify-center text-4xl shadow">🐋</div>
       <div>
         <h1 class="heading-font text-4xl text-blue-900">Savannah’s Ocean Wonders</h1>
-        <p class="text-blue-600 -mt-1">Your friendly Grok Tutor 💙</p>
+        <p class="text-blue-600 -mt-1">Your safe little learning space 💙</p>
       </div>
     </div>
-    <div class="hidden md:block text-sm bg-white/70 px-4 py-1.5 rounded-3xl">
-      Speak or type • Have fun!
+    <div class="hidden md:block text-xs bg-white/70 px-3 py-1 rounded-3xl text-blue-600">
+      Everything stays right here on your page
     </div>
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 px-6 pb-8">
 
-    <!-- LEFT: Grok Tutor Chat -->
-    <div class="lg:w-1/2 bg-white/90 backdrop-blur rounded-3xl shadow flex flex-col h-[620px]">
+    <!-- LEFT: Chat with Grok Tutor -->
+    <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px]">
       <div class="p-5 border-b flex items-center gap-3 bg-white rounded-t-3xl">
-        <div class="w-11 h-11 bg-blue-500 rounded-2xl flex items-center justify-center text-3xl">🐬</div>
+        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-teal-400 rounded-2xl flex items-center justify-center text-3xl">🐬</div>
         <div>
-          <div class="font-semibold text-xl text-blue-900">Grok – Your Ocean Tutor</div>
-          <div class="text-xs text-emerald-600 flex items-center gap-1">
-            <i class="fa-solid fa-circle text-[8px]"></i> Online & ready to play
+          <div class="font-semibold text-2xl text-blue-900">Grok • Your Ocean Tutor</div>
+          <div class="text-emerald-600 text-sm flex items-center gap-1">
+            <i class="fa-solid fa-circle fa-beat-pulse text-[10px]"></i> Ready to explore with you
           </div>
         </div>
       </div>
 
-      <!-- Chat Messages -->
-      <div id="chat" class="flex-1 p-5 overflow-y-auto space-y-4 bg-[radial-gradient(#bae6fd_0.8px,transparent_1px)] bg-[length:4px_4px]">
-        <!-- Messages added by JS -->
+      <div id="chat" class="flex-1 p-6 overflow-y-auto space-y-4 bg-[radial-gradient(#bae6fd_0.6px,transparent_1px)] bg-[length:3px_3px]">
+        <!-- Messages go here -->
       </div>
 
-      <!-- Input Area -->
       <div class="p-5 border-t bg-white rounded-b-3xl">
         <div class="flex gap-3">
-          <input id="textInput" type="text" placeholder="Type your question or answer here..." 
+          <input id="textInput" type="text" placeholder="Type here or tap the mic..." 
                  class="flex-1 border border-blue-200 focus:border-blue-400 rounded-3xl px-5 py-3 text-lg outline-none"
-                 onkeypress="if(event.key === 'Enter') sendTextMessage()">
-          
-          <button onclick="sendTextMessage()" 
-                  class="bg-blue-500 hover:bg-blue-600 text-white px-6 rounded-3xl flex items-center justify-center">
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
+                 onkeypress="if(event.key === 'Enter') sendMessage()">
           
           <button onclick="startListening()" 
-                  class="bg-teal-500 hover:bg-teal-600 text-white px-5 rounded-3xl flex items-center justify-center gap-2">
+                  class="bg-teal-500 hover:bg-teal-600 active:scale-95 transition text-white px-5 rounded-3xl flex items-center justify-center">
             <i class="fa-solid fa-microphone fa-lg"></i>
           </button>
+          
+          <button onclick="sendMessage()" 
+                  class="bg-blue-500 hover:bg-blue-600 active:scale-95 transition text-white px-6 rounded-3xl flex items-center justify-center">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
         </div>
-        <div class="text-center text-[10px] text-gray-400 mt-2">Voice works best in Chrome • Tap mic & speak clearly</div>
+        <div class="text-center text-[10px] text-gray-400 mt-2">Voice works great in Chrome • Everything stays private here</div>
       </div>
     </div>
 
-    <!-- RIGHT: Visual Questions -->
-    <div class="lg:w-1/2 bg-white/90 backdrop-blur rounded-3xl shadow flex flex-col h-[620px]">
+    <!-- RIGHT: Picture Questions -->
+    <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px]">
       <div class="p-5 border-b bg-white rounded-t-3xl">
-        <h3 class="font-semibold text-2xl text-blue-900">Look & Answer 🌊</h3>
-        <p class="text-sm text-blue-600">Tap a picture, then tell Grok your answer!</p>
+        <h3 class="font-semibold text-2xl text-blue-900">Look & Tell Me 🌊</h3>
+        <p class="text-sm text-blue-600">Tap a picture and I’ll help you answer!</p>
       </div>
 
       <div class="flex-1 p-5 overflow-y-auto">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           
-          <!-- Card 1 -->
-          <div onclick="askAboutImage('dolphin')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
-            <img src="https://picsum.photos/id/1015/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Friendly dolphin jumping">
+          <div onclick="handlePictureQuestion('dolphin')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden active:scale-[0.985]">
+            <img src="https://picsum.photos/id/1015/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Dolphin">
             <div class="p-4">
-              <div class="font-medium">How many fins does this dolphin have?</div>
-              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+              <div class="font-medium text-blue-900">How many fins does this dolphin have?</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div onclick="askAboutImage('sea turtle')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
-            <img src="https://picsum.photos/id/1005/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Sea turtle swimming">
+          <div onclick="handlePictureQuestion('sea turtle')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden active:scale-[0.985]">
+            <img src="https://picsum.photos/id/1005/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Sea turtle">
             <div class="p-4">
-              <div class="font-medium">What does a sea turtle like to eat?</div>
-              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+              <div class="font-medium text-blue-900">What does a sea turtle like to eat?</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div onclick="askAboutImage('jellyfish')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
-            <img src="https://picsum.photos/id/1016/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Pink jellyfish">
+          <div onclick="handlePictureQuestion('jellyfish')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden active:scale-[0.985]">
+            <img src="https://picsum.photos/id/1016/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Jellyfish">
             <div class="p-4">
-              <div class="font-medium">Why do jellyfish glow?</div>
-              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+              <div class="font-medium text-blue-900">Why do jellyfish glow?</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div onclick="askAboutImage('octopus')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
-            <img src="https://picsum.photos/id/102/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Cute octopus">
+          <div onclick="handlePictureQuestion('octopus')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden active:scale-[0.985]">
+            <img src="https://picsum.photos/id/102/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Octopus">
             <div class="p-4">
-              <div class="font-medium">How many arms does an octopus have?</div>
-              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+              <div class="font-medium text-blue-900">How many arms does an octopus have?</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
             </div>
           </div>
 
@@ -125,19 +118,17 @@
 </div>
 
 <script>
-// Add welcome message
-function addWelcomeMessage() {
+// Welcome message
+function addWelcome() {
   const chat = document.getElementById('chat');
-  const welcome = document.createElement('div');
-  welcome.className = 'chat-bubble mr-auto bg-blue-100 p-4 rounded-3xl';
-  welcome.innerHTML = `
-    <p class="text-blue-900">Hi Savannah! 🐬 I’m your Ocean Tutor. I love stories and sea friends! What would you like to learn today?</p>
-  `;
-  chat.appendChild(welcome);
+  const msg = document.createElement('div');
+  msg.className = 'chat-bubble mr-auto bg-blue-100 p-4 rounded-3xl';
+  msg.innerHTML = `<p class="text-blue-900">Hi Savannah! 🐬 I’m your Ocean Tutor. Everything we do stays right here on your page. What would you like to learn about today?</p>`;
+  chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight;
 }
 
-// Add message to chat
+// Add any message
 function addMessage(text, isUser = false) {
   const chat = document.getElementById('chat');
   const bubble = document.createElement('div');
@@ -148,71 +139,83 @@ function addMessage(text, isUser = false) {
 }
 
 // Send typed message
-function sendTextMessage() {
+function sendMessage() {
   const input = document.getElementById('textInput');
   const text = input.value.trim();
   if (!text) return;
-  
+
   addMessage(text, true);
   input.value = '';
-  
+
   setTimeout(() => {
     const replies = [
-      "That’s a great question! Would you like me to tell you a short story about it?",
-      "I love how curious you are! Let’s explore that together.",
-      "Wonderful thinking! Shall we look at more pictures?"
+      "That’s such a good question! Would you like me to tell you a little story about it?",
+      "I love how curious you are, Savannah! Let’s figure this out together.",
+      "Wonderful thinking! Shall we look at more pictures or talk about something else?",
+      "You’re doing amazing. Want me to explain it in a fun way?"
     ];
     addMessage(replies[Math.floor(Math.random() * replies.length)]);
-  }, 700);
+  }, 650);
 }
 
 // Voice input
 function startListening() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SpeechRecognition) {
-    addMessage("Voice works best in Chrome. You can type instead!");
+    addMessage("Voice works best in Chrome, but you can type instead!");
     return;
   }
-  
+
   const recognition = new SpeechRecognition();
   recognition.lang = 'en-US';
   recognition.interimResults = false;
-  
-  addMessage("🎤 Listening... speak now!");
-  
+
+  addMessage("🎤 I’m listening… speak now!");
+
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
     addMessage(transcript, true);
-    
+
     setTimeout(() => {
-      addMessage("Thank you! I’m thinking of a fun answer for you...");
-    }, 600);
+      addMessage("Thank you for telling me! I’m thinking of the perfect answer for you...");
+      setTimeout(() => {
+        addMessage("Would you like me to tell you a short story about that?");
+      }, 900);
+    }, 700);
   };
-  
-  recognition.onerror = () => {
-    addMessage("I couldn’t hear you clearly. Try again or type instead!");
-  };
-  
+
+  recognition.onerror = () => addMessage("I couldn’t hear you very well. Try again or just type it!");
   recognition.start();
 }
 
-// Quick Ask Grok for image cards
-function askAboutImage(topic) {
-  let prompt = '';
-  if (topic === 'dolphin') prompt = 'How many fins does a dolphin have? Answer in a fun, simple way for a 1st grader.';
-  if (topic === 'sea turtle') prompt = 'What does a sea turtle like to eat? Keep it gentle and fun.';
-  if (topic === 'jellyfish') prompt = 'Why do some jellyfish glow? Tell me a short magical story about it.';
-  if (topic === 'octopus') prompt = 'How many arms does an octopus have? Make it exciting for Savannah!';
-  
-  const fullPrompt = `You are Savannah's gentle, patient Ocean Tutor. She is 6, loves stories, nature, and feels things deeply. Answer warmly and simply: ${prompt}`;
-  
-  window.open(`https://grok.x.ai/?q=${encodeURIComponent(fullPrompt)}`, '_blank');
-  addMessage(`You asked about the ${topic}! I opened a special answer for you.`);
+// When she taps a picture
+function handlePictureQuestion(topic) {
+  let question = '';
+  let answer = '';
+
+  if (topic === 'dolphin') {
+    question = 'How many fins does this dolphin have?';
+    answer = 'A dolphin has three kinds of fins! The big one on top, two on the sides, and the tail. Want me to tell you a story about a dolphin who helps her friends?';
+  } else if (topic === 'sea turtle') {
+    question = 'What does a sea turtle like to eat?';
+    answer = 'Sea turtles love jellyfish and seaweed! They swim very slowly and gracefully. Would you like to pretend we’re sea turtles together?';
+  } else if (topic === 'jellyfish') {
+    question = 'Why do jellyfish glow?';
+    answer = 'Some jellyfish glow with beautiful colors to talk to each other or scare away big fish! It’s like they have tiny fairy lights inside. Want a glow story?';
+  } else if (topic === 'octopus') {
+    question = 'How many arms does an octopus have?';
+    answer = 'An octopus has eight arms! They use them to hug, hide, and even open jars. They’re super smart and can change colors. Want to hear about the clever octopus?';
+  }
+
+  addMessage(question, true);
+  setTimeout(() => {
+    addMessage(answer);
+  }, 800);
 }
 
-// Initial setup
+// Initial load
 window.onload = function() {
-  addWelcomeMessage();
+  addWelcome();
   
   // Easter egg
   document.addEventListener('keypress', function(e) {
