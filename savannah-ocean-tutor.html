@@ -12,6 +12,7 @@
         .chat-bubble { max-width: 85%; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .ocean-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); }
+        .thinking { animation: pulse 1.5s infinite; }
     </style>
 </head>
 <body class="ocean-gradient min-h-screen">
@@ -72,7 +73,7 @@
     <div class="lg:w-1/2 bg-white/95 backdrop-blur rounded-3xl shadow-xl flex flex-col h-[640px]">
       <div class="p-5 border-b bg-white rounded-t-3xl">
         <h3 class="font-semibold text-2xl text-blue-900">Look & Tell Me 🌊</h3>
-        <p class="text-sm text-blue-600">Tap a picture and I’ll help you answer!</p>
+        <p class="text-sm text-blue-600">Tap a picture and we’ll talk about it!</p>
       </div>
 
       <div class="flex-1 p-5 overflow-y-auto">
@@ -82,7 +83,7 @@
             <img src="https://picsum.photos/id/1015/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Dolphin">
             <div class="p-4">
               <div class="font-medium text-blue-900">How many fins does this dolphin have?</div>
-              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to talk with me →</div>
             </div>
           </div>
 
@@ -90,7 +91,7 @@
             <img src="https://picsum.photos/id/1005/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Sea turtle">
             <div class="p-4">
               <div class="font-medium text-blue-900">What does a sea turtle like to eat?</div>
-              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to talk with me →</div>
             </div>
           </div>
 
@@ -98,7 +99,7 @@
             <img src="https://picsum.photos/id/1016/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Jellyfish">
             <div class="p-4">
               <div class="font-medium text-blue-900">Why do jellyfish glow?</div>
-              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to talk with me →</div>
             </div>
           </div>
 
@@ -106,7 +107,7 @@
             <img src="https://picsum.photos/id/102/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Octopus">
             <div class="p-4">
               <div class="font-medium text-blue-900">How many arms does an octopus have?</div>
-              <div class="text-xs text-emerald-600 mt-1">Tap to ask me →</div>
+              <div class="text-xs text-emerald-600 mt-1">Tap to talk with me →</div>
             </div>
           </div>
 
@@ -123,7 +124,7 @@ function addWelcome() {
   const chat = document.getElementById('chat');
   const msg = document.createElement('div');
   msg.className = 'chat-bubble mr-auto bg-blue-100 p-4 rounded-3xl';
-  msg.innerHTML = `<p class="text-blue-900">Hi Savannah! 🐬 I’m your Ocean Tutor. Everything we do stays right here on your page. What would you like to learn about today?</p>`;
+  msg.innerHTML = `<p class="text-blue-900">Hi Savannah! 🐬 I’m your Ocean Tutor. Everything we talk about stays right here on your page. What would you like to learn about today?</p>`;
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight;
 }
@@ -138,6 +139,23 @@ function addMessage(text, isUser = false) {
   chat.scrollTop = chat.scrollHeight;
 }
 
+// Show thinking indicator
+function showThinking() {
+  const chat = document.getElementById('chat');
+  const thinking = document.createElement('div');
+  thinking.id = 'thinking';
+  thinking.className = 'chat-bubble mr-auto bg-white border p-3 rounded-3xl flex items-center gap-2 text-sm text-gray-500';
+  thinking.innerHTML = `<span class="thinking">Thinking...</span>`;
+  chat.appendChild(thinking);
+  chat.scrollTop = chat.scrollHeight;
+  return thinking;
+}
+
+function removeThinking() {
+  const thinking = document.getElementById('thinking');
+  if (thinking) thinking.remove();
+}
+
 // Send typed message
 function sendMessage() {
   const input = document.getElementById('textInput');
@@ -147,15 +165,18 @@ function sendMessage() {
   addMessage(text, true);
   input.value = '';
 
+  const thinking = showThinking();
+  
   setTimeout(() => {
+    removeThinking();
     const replies = [
-      "That’s such a good question! Would you like me to tell you a little story about it?",
-      "I love how curious you are, Savannah! Let’s figure this out together.",
-      "Wonderful thinking! Shall we look at more pictures or talk about something else?",
-      "You’re doing amazing. Want me to explain it in a fun way?"
+      "That’s a lovely question, Savannah! Would you like me to tell you a short story about it?",
+      "I love how curious you are! Let’s explore that together.",
+      "You’re thinking so beautifully. Shall we look at another picture or talk more about this?",
+      "Wonderful! Want me to explain it in a fun, gentle way?"
     ];
     addMessage(replies[Math.floor(Math.random() * replies.length)]);
-  }, 650);
+  }, 900);
 }
 
 // Voice input
@@ -170,21 +191,27 @@ function startListening() {
   recognition.lang = 'en-US';
   recognition.interimResults = false;
 
-  addMessage("🎤 I’m listening… speak now!");
+  addMessage("🎤 I’m listening… speak now, sweet girl!");
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
     addMessage(transcript, true);
 
+    const thinking = showThinking();
+    
     setTimeout(() => {
-      addMessage("Thank you for telling me! I’m thinking of the perfect answer for you...");
+      removeThinking();
+      addMessage("Thank you for telling me that! I’m so proud of you for asking.");
       setTimeout(() => {
-        addMessage("Would you like me to tell you a short story about that?");
-      }, 900);
-    }, 700);
+        addMessage("Would you like me to tell you a gentle story about it?");
+      }, 1100);
+    }, 850);
   };
 
-  recognition.onerror = () => addMessage("I couldn’t hear you very well. Try again or just type it!");
+  recognition.onerror = () => {
+    addMessage("I couldn’t hear you very well. Try again or just type it — I’m right here!");
+  };
+  
   recognition.start();
 }
 
@@ -195,22 +222,26 @@ function handlePictureQuestion(topic) {
 
   if (topic === 'dolphin') {
     question = 'How many fins does this dolphin have?';
-    answer = 'A dolphin has three kinds of fins! The big one on top, two on the sides, and the tail. Want me to tell you a story about a dolphin who helps her friends?';
+    answer = 'A dolphin has three kinds of fins! The big one on its back, two on the sides, and the tail. They’re so graceful in the water. Would you like me to tell you a story about a kind dolphin who helps her ocean friends?';
   } else if (topic === 'sea turtle') {
     question = 'What does a sea turtle like to eat?';
-    answer = 'Sea turtles love jellyfish and seaweed! They swim very slowly and gracefully. Would you like to pretend we’re sea turtles together?';
+    answer = 'Sea turtles love jellyfish and soft seaweed! They swim so slowly and peacefully. Want to pretend we’re gentle sea turtles together for a moment?';
   } else if (topic === 'jellyfish') {
     question = 'Why do jellyfish glow?';
-    answer = 'Some jellyfish glow with beautiful colors to talk to each other or scare away big fish! It’s like they have tiny fairy lights inside. Want a glow story?';
+    answer = 'Some jellyfish glow with soft beautiful colors to talk to each other or to scare away bigger fish. It’s like they have tiny magic lights inside! Shall I tell you a glow story?';
   } else if (topic === 'octopus') {
     question = 'How many arms does an octopus have?';
-    answer = 'An octopus has eight arms! They use them to hug, hide, and even open jars. They’re super smart and can change colors. Want to hear about the clever octopus?';
+    answer = 'An octopus has eight wonderful arms! They use them to hug, hide, and even open jars. They’re very clever and can change colors. Want to hear about the smart little octopus?';
   }
 
   addMessage(question, true);
+  
+  const thinking = showThinking();
+  
   setTimeout(() => {
+    removeThinking();
     addMessage(answer);
-  }, 800);
+  }, 950);
 }
 
 // Initial load
@@ -223,7 +254,7 @@ window.onload = function() {
       const chat = document.getElementById('chat');
       const fact = document.createElement('div');
       fact.className = 'chat-bubble mr-auto bg-yellow-100 p-4 rounded-3xl';
-      fact.innerHTML = `<p>🌟 Did you know? Dolphins have names for each other with special whistles!</p>`;
+      fact.innerHTML = `<p>🌟 Did you know? Dolphins have special names for each other with whistles!</p>`;
       chat.appendChild(fact);
       chat.scrollTop = chat.scrollHeight;
     }
