@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savannah’s Ocean Wonders • Grok Tutor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading-font { font-family: 'Playfair Display', Georgia, serif; }
+        .chat-bubble { max-width: 85%; }
+        .ocean-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); }
+    </style>
+</head>
+<body class="ocean-gradient min-h-screen">
+
+<div class="max-w-7xl mx-auto">
+  <!-- Header -->
+  <div class="px-6 pt-6 pb-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-14 h-14 bg-blue-500 rounded-3xl flex items-center justify-center text-4xl shadow">🐋</div>
+      <div>
+        <h1 class="heading-font text-4xl text-blue-900">Savannah’s Ocean Wonders</h1>
+        <p class="text-blue-600 -mt-1">Your friendly Grok Tutor 💙</p>
+      </div>
+    </div>
+    <div class="hidden md:block text-sm bg-white/70 px-4 py-1.5 rounded-3xl">
+      Speak or type • Have fun!
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-6 px-6 pb-8">
+
+    <!-- LEFT: Grok Tutor Chat -->
+    <div class="lg:w-1/2 bg-white/90 backdrop-blur rounded-3xl shadow flex flex-col h-[620px]">
+      <div class="p-5 border-b flex items-center gap-3 bg-white rounded-t-3xl">
+        <div class="w-11 h-11 bg-blue-500 rounded-2xl flex items-center justify-center text-3xl">🐬</div>
+        <div>
+          <div class="font-semibold text-xl text-blue-900">Grok – Your Ocean Tutor</div>
+          <div class="text-xs text-emerald-600 flex items-center gap-1">
+            <i class="fa-solid fa-circle text-[8px]"></i> Online & ready to play
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div id="chat" class="flex-1 p-5 overflow-y-auto space-y-4 bg-[radial-gradient(#bae6fd_0.8px,transparent_1px)] bg-[length:4px_4px]">
+        <!-- Messages added by JS -->
+      </div>
+
+      <!-- Input Area -->
+      <div class="p-5 border-t bg-white rounded-b-3xl">
+        <div class="flex gap-3">
+          <input id="textInput" type="text" placeholder="Type your question or answer here..." 
+                 class="flex-1 border border-blue-200 focus:border-blue-400 rounded-3xl px-5 py-3 text-lg outline-none"
+                 onkeypress="if(event.key === 'Enter') sendTextMessage()">
+          
+          <button onclick="sendTextMessage()" 
+                  class="bg-blue-500 hover:bg-blue-600 text-white px-6 rounded-3xl flex items-center justify-center">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          
+          <button onclick="startListening()" 
+                  class="bg-teal-500 hover:bg-teal-600 text-white px-5 rounded-3xl flex items-center justify-center gap-2">
+            <i class="fa-solid fa-microphone fa-lg"></i>
+          </button>
+        </div>
+        <div class="text-center text-[10px] text-gray-400 mt-2">Voice works best in Chrome • Tap mic & speak clearly</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Visual Questions -->
+    <div class="lg:w-1/2 bg-white/90 backdrop-blur rounded-3xl shadow flex flex-col h-[620px]">
+      <div class="p-5 border-b bg-white rounded-t-3xl">
+        <h3 class="font-semibold text-2xl text-blue-900">Look & Answer 🌊</h3>
+        <p class="text-sm text-blue-600">Tap a picture, then tell Grok your answer!</p>
+      </div>
+
+      <div class="flex-1 p-5 overflow-y-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <!-- Card 1 -->
+          <div onclick="askAboutImage('dolphin')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
+            <img src="https://picsum.photos/id/1015/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Friendly dolphin jumping">
+            <div class="p-4">
+              <div class="font-medium">How many fins does this dolphin have?</div>
+              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div onclick="askAboutImage('sea turtle')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
+            <img src="https://picsum.photos/id/1005/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Sea turtle swimming">
+            <div class="p-4">
+              <div class="font-medium">What does a sea turtle like to eat?</div>
+              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div onclick="askAboutImage('jellyfish')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
+            <img src="https://picsum.photos/id/1016/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Pink jellyfish">
+            <div class="p-4">
+              <div class="font-medium">Why do jellyfish glow?</div>
+              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div onclick="askAboutImage('octopus')" class="cursor-pointer group bg-white border hover:border-blue-300 transition rounded-3xl overflow-hidden">
+            <img src="https://picsum.photos/id/102/600/340" class="w-full h-40 object-cover group-hover:scale-105 transition" alt="Cute octopus">
+            <div class="p-4">
+              <div class="font-medium">How many arms does an octopus have?</div>
+              <div class="text-xs text-blue-500 mt-1">Tap to ask Grok →</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Add welcome message
+function addWelcomeMessage() {
+  const chat = document.getElementById('chat');
+  const welcome = document.createElement('div');
+  welcome.className = 'chat-bubble mr-auto bg-blue-100 p-4 rounded-3xl';
+  welcome.innerHTML = `
+    <p class="text-blue-900">Hi Savannah! 🐬 I’m your Ocean Tutor. I love stories and sea friends! What would you like to learn today?</p>
+  `;
+  chat.appendChild(welcome);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// Add message to chat
+function addMessage(text, isUser = false) {
+  const chat = document.getElementById('chat');
+  const bubble = document.createElement('div');
+  bubble.className = `chat-bubble ${isUser ? 'ml-auto bg-blue-500 text-white' : 'mr-auto bg-white border'} p-4 rounded-3xl shadow-sm`;
+  bubble.innerHTML = `<p>${text}</p>`;
+  chat.appendChild(bubble);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// Send typed message
+function sendTextMessage() {
+  const input = document.getElementById('textInput');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  addMessage(text, true);
+  input.value = '';
+  
+  setTimeout(() => {
+    const replies = [
+      "That’s a great question! Would you like me to tell you a short story about it?",
+      "I love how curious you are! Let’s explore that together.",
+      "Wonderful thinking! Shall we look at more pictures?"
+    ];
+    addMessage(replies[Math.floor(Math.random() * replies.length)]);
+  }, 700);
+}
+
+// Voice input
+function startListening() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    addMessage("Voice works best in Chrome. You can type instead!");
+    return;
+  }
+  
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  
+  addMessage("🎤 Listening... speak now!");
+  
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    addMessage(transcript, true);
+    
+    setTimeout(() => {
+      addMessage("Thank you! I’m thinking of a fun answer for you...");
+    }, 600);
+  };
+  
+  recognition.onerror = () => {
+    addMessage("I couldn’t hear you clearly. Try again or type instead!");
+  };
+  
+  recognition.start();
+}
+
+// Quick Ask Grok for image cards
+function askAboutImage(topic) {
+  let prompt = '';
+  if (topic === 'dolphin') prompt = 'How many fins does a dolphin have? Answer in a fun, simple way for a 1st grader.';
+  if (topic === 'sea turtle') prompt = 'What does a sea turtle like to eat? Keep it gentle and fun.';
+  if (topic === 'jellyfish') prompt = 'Why do some jellyfish glow? Tell me a short magical story about it.';
+  if (topic === 'octopus') prompt = 'How many arms does an octopus have? Make it exciting for Savannah!';
+  
+  const fullPrompt = `You are Savannah's gentle, patient Ocean Tutor. She is 6, loves stories, nature, and feels things deeply. Answer warmly and simply: ${prompt}`;
+  
+  window.open(`https://grok.x.ai/?q=${encodeURIComponent(fullPrompt)}`, '_blank');
+  addMessage(`You asked about the ${topic}! I opened a special answer for you.`);
+}
+
+// Initial setup
+window.onload = function() {
+  addWelcomeMessage();
+  
+  // Easter egg
+  document.addEventListener('keypress', function(e) {
+    if (e.key === '?') {
+      const chat = document.getElementById('chat');
+      const fact = document.createElement('div');
+      fact.className = 'chat-bubble mr-auto bg-yellow-100 p-4 rounded-3xl';
+      fact.innerHTML = `<p>🌟 Did you know? Dolphins have names for each other with special whistles!</p>`;
+      chat.appendChild(fact);
+      chat.scrollTop = chat.scrollHeight;
+    }
+  });
+};
+</script>
+
+</body>
+</html>
