@@ -22,9 +22,8 @@
             transition: all 0.2s ease;
             box-shadow: 0 0 12px var(--glow);
         }
-        .neon-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--glow);
+        .neon-button:active {
+            transform: scale(0.95);
         }
         .neon-accent { color: var(--accent); }
         .neon-bg { background-color: var(--accent); }
@@ -35,8 +34,8 @@
 
 <div class="max-w-7xl mx-auto">
   <!-- Header with Color Switcher -->
-  <div class="px-6 pt-6 pb-3">
-    <div class="flex items-center justify-between">
+  <div class="px-6 pt-6 pb-4">
+    <div class="flex flex-col gap-4">
       <div class="flex items-center gap-3">
         <div class="w-14 h-14 bg-blue-500 rounded-3xl flex items-center justify-center text-4xl shadow">🐋</div>
         <div>
@@ -45,15 +44,17 @@
         </div>
       </div>
       
-      <!-- Color Magic Switcher -->
-      <div class="hidden md:flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-3xl shadow-sm">
-        <span class="text-xs font-medium text-gray-500 mr-2">Color Magic</span>
+      <!-- Color Magic Switcher - Now visible on mobile -->
+      <div class="flex items-center gap-3 bg-white/80 backdrop-blur px-4 py-3 rounded-3xl shadow-sm overflow-x-auto">
+        <span class="text-sm font-medium text-gray-600 whitespace-nowrap">Color Magic ✨</span>
         
-        <button onclick="setTheme('ocean')" class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 border-2 border-white shadow neon-button" title="Ocean"></button>
-        <button onclick="setTheme('pink')" class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-fuchsia-500 border-2 border-white shadow neon-button" title="Neon Pink"></button>
-        <button onclick="setTheme('purple')" class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 border-2 border-white shadow neon-button" title="Neon Purple"></button>
-        <button onclick="setTheme('green')" class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-lime-400 border-2 border-white shadow neon-button" title="Neon Green"></button>
-        <button onclick="setTheme('blue')" class="w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 border-2 border-white shadow neon-button" title="Neon Blue"></button>
+        <div class="flex gap-3">
+          <button onclick="setTheme('ocean')" class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 border-[3px] border-white shadow neon-button" title="Ocean"></button>
+          <button onclick="setTheme('pink')" class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-400 to-fuchsia-500 border-[3px] border-white shadow neon-button" title="Neon Pink"></button>
+          <button onclick="setTheme('purple')" class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 border-[3px] border-white shadow neon-button" title="Neon Purple"></button>
+          <button onclick="setTheme('green')" class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-lime-400 border-[3px] border-white shadow neon-button" title="Neon Green"></button>
+          <button onclick="setTheme('blue')" class="w-9 h-9 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 border-[3px] border-white shadow neon-button" title="Neon Blue"></button>
+        </div>
       </div>
     </div>
   </div>
