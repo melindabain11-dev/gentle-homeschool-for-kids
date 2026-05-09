@@ -2,7 +2,7 @@
 
 ## ✨ Vision: Supporting Baby Grok for Young Children
 
-This framework serves as **real-world proof** for responsible AI teams (including xAI) to develop a safe, gentle “Baby Grok” for sensitive, neurodivergent, and gifted young learners. By sharing emotional safety patterns, engagement data, and effective AI interaction styles, we hope to help create AI that truly understands and protects young hearts.
+This framework serves as **real-world proof** for responsible AI teams (including xAI) to develop a safe, gentle “Baby Grok” for neurodivergent, and gifted young learners. By sharing emotional safety patterns, engagement data, and effective AI interaction styles, we hope to help create AI that truly understands and protects young hearts.
 
 ---
 
@@ -76,6 +76,6 @@ This creates consistent, loving, perfectly tailored support while gathering the 
 ---
 
 **This framework is a living document** — completely free forever.  
-We welcome contributions from other families to make it even better for sensitive kids everywhere.
+We welcome contributions from other families to make it even better for kids everywhere.
 
-*Part of the Gentle Homeschool for Sensitive Kids project.* 💕
+*Part of the Gentle Homeschool for Kids project.* 💕
