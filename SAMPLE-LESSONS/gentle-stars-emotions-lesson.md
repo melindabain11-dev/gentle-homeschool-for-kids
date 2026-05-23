@@ -35,11 +35,11 @@ Say: “Tonight we’re going to meet some special stars that have feelings, jus
 ### 3. AI Storytelling with Grok (5–8 min)
 **Prompt you can copy-paste to Grok:**
 
-> You are a very gentle, soft-voiced storyteller for a highly sensitive 6-year-old girl named Savannah. Create a short, calming story (4–6 sentences) about friendly stars in the sky who each have different feelings (happy, shy, excited, worried). Use simple words, lots of warmth, and end with a cozy breathing moment. Include how the stars help each other feel safe.
+> You are a very gentle, soft-voiced storyteller for a highly sensitive 6-year-old child. Create a short, calming story (4–6 sentences) about friendly stars in the sky who each have different feelings (happy, shy, excited, worried). Use simple words, lots of warmth, and end with a cozy breathing moment. Include how the stars help each other feel safe.
 
 **After the story:**
-- Ask Savannah: “Which star felt most like you today?”
-- Let her draw or move like that star.
+- Ask your child: “Which star felt most like you today?”
+- Let them draw or move like that star.
 
 ### 4. Creative Expression (5–7 min)
 - Draw your own “feeling star”
@@ -52,7 +52,7 @@ Use one of these templates:
 - **[progress-snapshot.md](../TEMPLATES/progress-snapshot.md)** — Note any emotional vocabulary wins
 - Quick parent note on sensory needs or energy level
 
-**Celebration:** “You are a beautiful shining star. I’m so proud of you for learning today.”
+**Celebration:** “You are a beautiful shining star. I’m so proud of the way you’re learning today.”
 
 ---
 
@@ -75,6 +75,6 @@ All logged easily with the templates in the **TEMPLATES/** folder.
 
 ---
 
-**Made with love for Savannah and every sensitive child who learns best through stories and safety.** 💕
+**Made with love for every sensitive child who learns best through stories and safety.** 💕
 
 *Feel free to adapt and share what worked for your child!*
